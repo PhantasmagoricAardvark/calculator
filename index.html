@@ -2,8 +2,40 @@
 <html>
 <head>
 	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+
+
+	<button class="button1">1</button>
+	<button class="button2">2</button>
+	<button class="button3">3</button>
+	<button class="button4">4</button>
+	<button class="button5">5</button>
+	<button class="button6">6</button>
+	<button class="button7">7</button>
+	<button class="button8">8</button>
+	<button class="button9">9</button>
+	<button class="button0">0</button>
+
+	<div class="operButtons">
+		<button class="addButton">+</button>
+		<button class="subButton">-</button>
+		<button class="multButton">*</button>
+		<button class="divButton">/</button>
+		<button class="operate">=</button>
+	
+	</div>
+
+	<button class="clear">clear</button>
+
+	<div class="display">
+		
+	</div>
+
+	
+
+
 
 	<script type="text/javascript">
 
@@ -28,8 +60,64 @@
 		switch (operator) {
 				case "+" : 
 					return add(a,b)
+					break
+				case "-" :
+					return subtract(a,b)
+					break
+				case "*" :
+					return multiply(a,b)
+					break
+				case "/" :
+					return divide(a,b)
+					break
 			}
 		}
+
+
+		let numDisplay = document.querySelector(".display")
+
+		let num = 0
+		let numNew = 0
+
+		function displayNumber(a) {
+			numDisplay.textContent += a
+			num = numDisplay.textContent
+			numNew = +num
+
+		}
+
+		
+
+		let button1 = document.querySelector(".button1")
+		button1.addEventListener("click", function() {displayNumber(1)})
+
+		let button2 = document.querySelector(".button2")
+		button2.addEventListener("click", function() {displayNumber(2)})
+
+		let button3 = document.querySelector(".button3")
+		button3.addEventListener("click", function() {displayNumber(3)})
+
+		let button4 = document.querySelector(".button4")
+		button4.addEventListener("click", function() {displayNumber(4)})
+
+		let button5 = document.querySelector(".button5")
+		button5.addEventListener("click", function() {displayNumber(5)})
+
+		let button6 = document.querySelector(".button6")
+		button6.addEventListener("click", function() {displayNumber(6)})
+
+		let button7 = document.querySelector(".button7")
+		button7.addEventListener("click", function() {displayNumber(7)})
+
+		let button8 = document.querySelector(".button8")
+		button8.addEventListener("click", function() {displayNumber(8)})
+
+		let button9 = document.querySelector(".button9")
+		button9.addEventListener("click", function() {displayNumber(9)})
+
+		let button0 = document.querySelector(".button0")
+		button0.addEventListener("click", function() {displayNumber(0)})
+		
 
 
 
