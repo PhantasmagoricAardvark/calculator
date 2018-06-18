@@ -29,9 +29,7 @@
 
 	<button class="clear">clear</button>
 
-	<div class="display">
-		
-	</div>
+	<div class="display"></div>
 
 	
 
@@ -39,36 +37,36 @@
 
 	<script type="text/javascript">
 
-		function add(a,b) {
-			return a + b
+		function add(num1,num2) {
+			return num1 + num2
 		}
 
-		function subtract(a,b) {
-			return a - b 
+		function subtract(num1,num2) {
+			return num1 - num2 
 		}
 
-		function multiply(a,b) {
-			return a * b
+		function multiply(num1,num2) {
+			return num1 * num2
 		}
 
-		function divide(a,b) {
-			return a / b
+		function divide(num1,num2) {
+			return num1 / num2
 		}		
 
 
-		function operate(operator,a,b) {
+		function operate(operator,num1,num2) {
 		switch (operator) {
 				case "+" : 
-					return add(a,b)
+					return add(num1,num2)
 					break
 				case "-" :
-					return subtract(a,b)
+					return subtract(num1,num2)
 					break
 				case "*" :
-					return multiply(a,b)
+					return multiply(num1,num2)
 					break
 				case "/" :
-					return divide(a,b)
+					return divide(num1,num2)
 					break
 			}
 		}
@@ -76,16 +74,26 @@
 
 		let numDisplay = document.querySelector(".display")
 
-		let num = 0
-		let numNew = 0
+		let numOld = 0
+		let num1 = 0
+
+		let operator = ""
 
 		function displayNumber(a) {
-			numDisplay.textContent += a
-			num = numDisplay.textContent
-			numNew = +num
+			numDisplay.textContent += a;
+			numOld = numDisplay.textContent;
+			num1 = +numOld;
 
 		}
 
+		function displayOperator(operator1) {
+			numDisplay.textContent += operator1;
+			operator = numDisplay.textContent;
+		}
+
+		function displayNumber2(b) {
+			numDisplay.textContent += b;
+		}
 		
 
 		let button1 = document.querySelector(".button1")
@@ -117,7 +125,23 @@
 
 		let button0 = document.querySelector(".button0")
 		button0.addEventListener("click", function() {displayNumber(0)})
+
+
+		let addButton = document.querySelector(".addButton")
+		addButton.addEventListener("click", function() {displayOperator("+")})
+
+
+		let array1 = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9]
+
 		
+
+		
+
+		function removeEventListeners() {
+			for (let i = 0; i < 10; i++) {
+				array1[i].removeEventListener("click", displayNumber(i))
+			}
+		}
 
 
 
