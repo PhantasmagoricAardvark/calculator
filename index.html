@@ -38,7 +38,7 @@
 	<script type="text/javascript">
 
 		function add(num1,num2) {
-			return num1 + num2
+			return numDisplay.textContent += (num1 + num2)
 		}
 
 		function subtract(num1,num2) {
@@ -79,6 +79,12 @@
 
 		let operator = ""
 
+		let numOld2 = 0
+		let num2 = 0
+
+		let num2Storage = ""
+		let iterator = 0
+
 		function displayNumber(a) {
 			numDisplay.textContent += a;
 			numOld = numDisplay.textContent;
@@ -88,61 +94,224 @@
 
 		function displayOperator(operator1) {
 			numDisplay.textContent += operator1;
-			operator = numDisplay.textContent;
+			operator = operator1
+			console.log(operator)
 		}
 
 		function displayNumber2(b) {
 			numDisplay.textContent += b;
+			num2Storage += b;
+			num2 = +num2Storage
+			console.log(num2)
 		}
 		
 
+
+		function display1() {
+			displayNumber(1)
+
+		}
+
+		function display2() {
+			displayNumber(2)
+
+		}
+
+		function display3() {
+			displayNumber(3)
+
+		}
+
+		function display4() {
+			displayNumber(4)
+
+		}
+
+		function display5() {
+			displayNumber(5)
+
+		}
+
+		function display6() {
+			displayNumber(6)
+
+		}
+
+		function display7() {
+			displayNumber(7)
+
+		}
+
+		function display8() {
+			displayNumber(8)
+
+		}
+
+		function display9() {
+			displayNumber(9)
+
+		}
+
+		function display0() {
+			displayNumber(0)
+
+		}
+
+
+
+
 		let button1 = document.querySelector(".button1")
-		button1.addEventListener("click", function() {displayNumber(1)})
+		button1.addEventListener("click", display1)
 
 		let button2 = document.querySelector(".button2")
-		button2.addEventListener("click", function() {displayNumber(2)})
+		button2.addEventListener("click", display2)
 
 		let button3 = document.querySelector(".button3")
-		button3.addEventListener("click", function() {displayNumber(3)})
+		button3.addEventListener("click", display3)
 
 		let button4 = document.querySelector(".button4")
-		button4.addEventListener("click", function() {displayNumber(4)})
+		button4.addEventListener("click", display4)
 
 		let button5 = document.querySelector(".button5")
-		button5.addEventListener("click", function() {displayNumber(5)})
+		button5.addEventListener("click", display5)
 
 		let button6 = document.querySelector(".button6")
-		button6.addEventListener("click", function() {displayNumber(6)})
+		button6.addEventListener("click", display6)
 
 		let button7 = document.querySelector(".button7")
-		button7.addEventListener("click", function() {displayNumber(7)})
+		button7.addEventListener("click", display7)
 
 		let button8 = document.querySelector(".button8")
-		button8.addEventListener("click", function() {displayNumber(8)})
+		button8.addEventListener("click", display8)
 
 		let button9 = document.querySelector(".button9")
-		button9.addEventListener("click", function() {displayNumber(9)})
+		button9.addEventListener("click", display9)
 
 		let button0 = document.querySelector(".button0")
-		button0.addEventListener("click", function() {displayNumber(0)})
+		button0.addEventListener("click", display0)
 
 
 		let addButton = document.querySelector(".addButton")
 		addButton.addEventListener("click", function() {displayOperator("+")})
+		addButton.addEventListener("click", removeEventListeners)
+		addButton.addEventListener("click", eventListenerNum2)
 
+
+
+		let operateNumbers = document.querySelector(".operate") 
+		operateNumbers.addEventListener("click", clearDisplay)
+		operateNumbers.addEventListener("click", function() {operate(operator,num1,num2)})
 
 		let array1 = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9]
 
 		
 
+
 		
 
 		function removeEventListeners() {
-			for (let i = 0; i < 10; i++) {
-				array1[i].removeEventListener("click", displayNumber(i))
-			}
+			button1.removeEventListener("click", display1)
+
+			button2.removeEventListener("click", display2)
+
+			button3.removeEventListener("click", display3)
+
+			button4.removeEventListener("click", display4)
+
+			button5.removeEventListener("click", display5)
+
+			button6.removeEventListener("click", display6)
+
+			button7.removeEventListener("click", display7)
+
+			button8.removeEventListener("click",display8)
+
+			button9.removeEventListener("click", display9)
+
+			button0.removeEventListener("click", display0)
+			
 		}
 
+
+
+
+		function eventListenerNum2() {
+			function displayB1() {
+				displayNumber2(1)
+
+			}
+
+			function displayB2() {
+				displayNumber2(2)
+
+			}
+
+			function displayB3() {
+				displayNumber2(3)
+
+			}
+
+			function displayB4() {
+				displayNumber2(4)
+
+			}
+
+			function displayB5() {
+				displayNumber2(5)
+
+			}
+
+			function displayB6() {
+				displayNumber2(6)
+
+			}
+
+			function displayB7() {
+				displayNumber2(7)
+
+			}
+
+			function displayB8() {
+				displayNumber2(8)
+
+			}
+
+			function displayB9() {
+				displayNumber2(9)
+
+			}
+
+			function displayB0() {
+				displayNumber2(0)
+
+			}
+
+			button1.addEventListener("click", displayB1)
+			button2.addEventListener("click", displayB2)
+			button3.addEventListener("click", displayB3)
+			button4.addEventListener("click", displayB4)
+			button5.addEventListener("click", displayB5)
+			button6.addEventListener("click", displayB6)
+			button7.addEventListener("click", displayB7)
+			button8.addEventListener("click", displayB8)
+			button9.addEventListener("click", displayB9)
+			button0.addEventListener("click", displayB0)
+
+
+
+
+		}
+
+		function clearDisplay() {
+			numDisplay.textContent = ""
+		}
+
+		function num1Equal() {
+			num1 = operate(operator,num1,num2)
+		}
+
+
+		
 
 
 	</script>
