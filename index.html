@@ -42,15 +42,15 @@
 		}
 
 		function subtract(num1,num2) {
-			return num1 - num2 
+			return numDisplay.textContent += num1 - num2 
 		}
 
 		function multiply(num1,num2) {
-			return num1 * num2
+			return numDisplay.textContent += num1 * num2
 		}
 
 		function divide(num1,num2) {
-			return num1 / num2
+			return numDisplay.textContent += Math.round((num1 / num2) * 100) / 100
 		}		
 
 
@@ -85,6 +85,7 @@
 		let num2Storage = ""
 		let iterator = 0
 
+
 		function displayNumber(a) {
 			numDisplay.textContent += a;
 			numOld = numDisplay.textContent;
@@ -103,6 +104,7 @@
 			num2Storage += b;
 			num2 = +num2Storage
 			console.log(num2)
+			console.log(b)
 		}
 		
 
@@ -196,11 +198,33 @@
 		addButton.addEventListener("click", removeEventListeners)
 		addButton.addEventListener("click", eventListenerNum2)
 
+		let subButton = document.querySelector(".subButton")
+		subButton.addEventListener("click", function() {displayOperator("-")})
+		subButton.addEventListener("click", removeEventListeners)
+		subButton.addEventListener("click", eventListenerNum2)
+
+		let multButton = document.querySelector(".multButton")
+		multButton.addEventListener("click", function() {displayOperator("*")})
+		multButton.addEventListener("click", removeEventListeners)
+		multButton.addEventListener("click", eventListenerNum2)
+
+		let divButton = document.querySelector(".divButton")
+		divButton.addEventListener("click", function() {displayOperator("/")})
+		divButton.addEventListener("click", removeEventListeners)
+		divButton.addEventListener("click", eventListenerNum2)
+		
 
 
 		let operateNumbers = document.querySelector(".operate") 
 		operateNumbers.addEventListener("click", clearDisplay)
 		operateNumbers.addEventListener("click", function() {operate(operator,num1,num2)})
+		operateNumbers.addEventListener("click", num1Equal)
+
+
+		let clearButton = document.querySelector(".clear")
+		clearButton.addEventListener("click", clearAll)
+
+
 
 		let array1 = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9]
 
@@ -236,6 +260,21 @@
 
 
 		function eventListenerNum2() {
+			++iterator
+			console.log("iterator"+ " = " +iterator)
+
+			if (iterator = 1) {
+				iterator--,
+				addButton.removeEventListener("click", eventListenerNum2),
+				subButton.removeEventListener("click", eventListenerNum2)
+				multButton.removeEventListener("click", eventListenerNum2)
+				divButton.removeEventListener("click", eventListenerNum2)
+
+
+			}
+
+
+
 			function displayB1() {
 				displayNumber2(1)
 
@@ -306,12 +345,30 @@
 			numDisplay.textContent = ""
 		}
 
+
 		function num1Equal() {
-			num1 = operate(operator,num1,num2)
+			num1 = 0
+			num2 = 0
+			num2Storage = ""
+			num1 = +numDisplay.textContent
+			
 		}
 
 
-		
+
+		function clearAll() {
+			numDisplay.textContent = ""
+			numOld = 0
+			num1 = 0
+			operator = ""
+			numOld2 = 0
+			num2 = 0
+			num2Storage = ""
+			iterator = 0
+
+		}
+
+
 
 
 	</script>
