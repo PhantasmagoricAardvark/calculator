@@ -50,6 +50,10 @@
 		}
 
 		function divide(num1,num2) {
+			if (num2 == 0) {
+				return numDisplay.textContent += "Stop that shit!"				
+			}
+
 			return numDisplay.textContent += Math.round((num1 / num2) * 100) / 100
 		}		
 
@@ -72,6 +76,9 @@
 		}
 
 
+		
+
+
 		let numDisplay = document.querySelector(".display")
 
 		let numOld = 0
@@ -86,25 +93,31 @@
 		let iterator = 0
 
 
+
+
+
 		function displayNumber(a) {
+			
 			numDisplay.textContent += a;
 			numOld = numDisplay.textContent;
 			num1 = +numOld;
-
+			console.log("num1 is: " + num1)
 		}
 
 		function displayOperator(operator1) {
 			numDisplay.textContent += operator1;
 			operator = operator1
-			console.log(operator)
+			console.log("operator is: " + operator)
 		}
 
 		function displayNumber2(b) {
+			if (numDisplay.textContent == "Stop that shit!" || numDisplay.textContent == "NaN") {
+				clearAll()
+			}
 			numDisplay.textContent += b;
 			num2Storage += b;
 			num2 = +num2Storage
-			console.log(num2)
-			console.log(b)
+			console.log("num2 is: " + num2)
 		}
 		
 
@@ -228,6 +241,38 @@
 
 		let array1 = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9]
 
+
+		function displayB1() {
+			displayNumber2(1)
+		}
+		function displayB2() {
+			displayNumber2(2)
+		}
+		function displayB3() {
+			displayNumber2(3)
+			}
+		function displayB4() {
+			displayNumber2(4)
+		}
+		function displayB5() {
+			displayNumber2(5)
+		}
+		function displayB6() {
+			displayNumber2(6)
+		}
+		function displayB7() {
+			displayNumber2(7)
+		}
+		function displayB8() {
+			displayNumber2(8)
+		}
+		function displayB9() {
+			displayNumber2(9)
+		}
+		function displayB0() {
+			displayNumber2(0)
+		}
+
 		
 
 
@@ -248,7 +293,7 @@
 
 			button7.removeEventListener("click", display7)
 
-			button8.removeEventListener("click",display8)
+			button8.removeEventListener("click", display8)
 
 			button9.removeEventListener("click", display9)
 
@@ -273,57 +318,9 @@
 
 			}
 
+				
 
 
-			function displayB1() {
-				displayNumber2(1)
-
-			}
-
-			function displayB2() {
-				displayNumber2(2)
-
-			}
-
-			function displayB3() {
-				displayNumber2(3)
-
-			}
-
-			function displayB4() {
-				displayNumber2(4)
-
-			}
-
-			function displayB5() {
-				displayNumber2(5)
-
-			}
-
-			function displayB6() {
-				displayNumber2(6)
-
-			}
-
-			function displayB7() {
-				displayNumber2(7)
-
-			}
-
-			function displayB8() {
-				displayNumber2(8)
-
-			}
-
-			function displayB9() {
-				displayNumber2(9)
-
-			}
-
-			function displayB0() {
-				displayNumber2(0)
-
-			}
 
 			button1.addEventListener("click", displayB1)
 			button2.addEventListener("click", displayB2)
@@ -365,6 +362,46 @@
 			num2 = 0
 			num2Storage = ""
 			iterator = 0
+
+			button1.removeEventListener("click", displayB1)
+			button2.removeEventListener("click", displayB2)
+			button3.removeEventListener("click", displayB3)
+			button4.removeEventListener("click", displayB4)
+			button5.removeEventListener("click", displayB5)
+			button6.removeEventListener("click", displayB6)
+			button7.removeEventListener("click", displayB7)
+			button8.removeEventListener("click", displayB8)
+			button9.removeEventListener("click", displayB9)
+			button0.removeEventListener("click", displayB0)
+
+
+			button1.removeEventListener("click", eventListenerNum2)
+			button2.removeEventListener("click", eventListenerNum2)
+			button3.removeEventListener("click", eventListenerNum2)
+			button4.removeEventListener("click", eventListenerNum2)
+			button5.removeEventListener("click", eventListenerNum2)
+			button6.removeEventListener("click", eventListenerNum2)
+			button7.removeEventListener("click", eventListenerNum2)
+			button8.removeEventListener("click", eventListenerNum2)
+			button9.removeEventListener("click", eventListenerNum2)
+			button0.removeEventListener("click", eventListenerNum2)
+
+			button1.addEventListener("click", display1)
+			button2.addEventListener("click", display2)
+			button3.addEventListener("click", display3)
+			button4.addEventListener("click", display4)
+			button5.addEventListener("click", display5)
+			button6.addEventListener("click", display6)
+			button7.addEventListener("click", display7)
+			button8.addEventListener("click", display8)
+			button9.addEventListener("click", display9)
+			button0.addEventListener("click", display0)
+
+			addButton.addEventListener("click", eventListenerNum2),
+			subButton.addEventListener("click", eventListenerNum2)
+			multButton.addEventListener("click", eventListenerNum2)
+			divButton.addEventListener("click", eventListenerNum2)
+			
 
 		}
 
